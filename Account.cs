@@ -4,45 +4,111 @@ using System.Collections.Generic;
 namespace BankClassLibrary
 {
 
-    public partial class Account
+    public class Account
     {
-        public string CustomerName;
-        DateTime DateofBirth;
-        string PhoneNumber;
-        string Address;
-        void UpdatePhone(string aNewPhone)
-        {
+        #region FEILDS AND PROPERTIES
+        public static double ExchangeRate = 1.1d; // Exchange rate to foreign currency
+        public const string EMPTY_ADDRESS = "UNKNOWN";
+        private const string EMPTY_PHONE = "####";
 
+        Customer AccountCustomer; //Account Holder
+        public string CustomerName
+        {
+            get
+            {
+                return AccountCustomer.CustomerName;
+            }
         }
 
-        void UpdateAddress(string aNewAddress)
+        public string CustomerPhone
         {
-
+            get
+            {
+                return AccountCustomer.PhoneNumber;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    AccountCustomer.PhoneNumber = EMPTY_PHONE;
+                }
+                else
+                {
+                    AccountCustomer.PhoneNumber = value;
+                }
+            }
         }
 
-    }
-    public partial class Account
-    {
-        int AccountNumber;
+        public string CustomerAddress
+        {
+            get
+            {
+                return AccountCustomer.Address;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    AccountCustomer.Address = EMPTY_ADDRESS;
+                }
+                else
+                {
+                    AccountCustomer.Address = value;
+                }
+                AccountCustomer.Address = value;
+            }
+        }
+        int AccountNumber; //Unique Account Id
        
-        public double CurrentBalance;
-        List<double> ListOfTransactions;
+        public double CurrentBalance;  // The amount of money in the account
+        public double Balance
+        {
+            get
+            {
+                return CurrentBalance;
+            }
+        }
 
+        public double BalanceInForeignCurrency
+        {
+            get
+            {
+                return CurrentBalance * ExchangeRate;
+            }
+        }
+
+        List<Transaction> ListOfTransactions;
+
+        public Transaction LastTransaction
+        {
+            get
+            {
+                if(ListOfTransactions.Count > 0)
+                {
+                    return ListOfTransactions[ListOfTransactions.Count - 1];
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        #endregion FEILDS AND PROPERTIES
+
+        #region CONSTRUCTORS
         // Initialization
         public Account(string aCustomerName, DateTime aDateOfBirth, string aPhone = null, string aAddress = null )
         {
-            CustomerName = aCustomerName;
-            DateofBirth = aDateOfBirth;
-            PhoneNumber = aPhone;
-            Address = aAddress;
-
+            AccountCustomer = new Customer(aCustomerName, aDateOfBirth, aPhone, aAddress);
             AccountNumber = Guid.NewGuid().GetHashCode();
 
             CurrentBalance = 0;
-            ListOfTransactions = new List<double>();
-
+            ListOfTransactions = new List<Transaction>();
         }
+        #endregion CONSTRUCTORS
 
+        #region METHODS
         // A method to display balance
         void DisplayBalance()
         {
@@ -64,11 +130,23 @@ namespace BankClassLibrary
 
             return isSuccess;
         }
+        #endregion METHODS
 
+        #region NESTED TYPES
         public class Transaction
         {
+            public double AmountOfTransaction;
+            public DateTime TransactionDate;
+            public string Location;
 
+            //Transaction type
+            public TransactionType TypeOfTransaction;
         }
-       
+        public enum TransactionType
+        {
+            DEPOSIT,
+            WITHDRAWL
+        }
+        #endregion NESTED TYPES
     }
 }
