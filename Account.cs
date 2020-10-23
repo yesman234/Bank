@@ -44,7 +44,7 @@ namespace BankClassLibrary
         }
 
         // A method to display balance
-        void DisplayBalance()
+        void DisplayBalance(double aTest)
         {
 
         }
