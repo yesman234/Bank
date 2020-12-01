@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "T890NVq9dYwq7JtkN88sFvd2GlNJJSp+WkktF0FzIKhEyfdSYVX2c8bh+7s7fdu6rYAaeevnGnvchoDo4lfmJg==",
+  "dgSpecHash": "DVJuYSuklS3ivGgnqoYzKBzsCbsW6vihjQZrtBet+cYQGgLyDT3UyQ4K2tR3/wHIS8xbTUCRWNwEFH0Gr4P/dQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Marcellus\\Source\\Repos\\Bank\\BankClassLibrary.csproj",
+  "projectFilePath": "C:\\Users\\only1\\Source\\Repos\\Bank\\BankClassLibrary.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Marcellus\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\Marcellus\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\only1\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\only1\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }

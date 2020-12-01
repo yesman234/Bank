@@ -6,6 +6,8 @@ namespace BankClassLibrary
 
     public partial class Account
     {
+        Customer AccountCustomer; // The Account Holder
+
         public string CustomerName;
         DateTime DateofBirth;
         string PhoneNumber;
