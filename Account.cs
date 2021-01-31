@@ -12,6 +12,8 @@ namespace BankClassLibrary
         DateTime DateofBirth;
         string PhoneNumber;
         string Address;
+
+
         void UpdatePhone(string aNewPhone)
         {
 
@@ -32,10 +34,8 @@ namespace BankClassLibrary
         // Initialization
         public Account(string aCustomerName, DateTime aDateOfBirth, string aPhone = null, string aAddress = null)
         {
-            CustomerName = aCustomerName;
-            DateofBirth = aDateOfBirth;
-            PhoneNumber = aPhone;
-            Address = aAddress;
+   
+            AccountCustomer = new Customer(aCustomerName, aDateOfBirth, aPhone, aAddress);
 
             AccountNumber = Guid.NewGuid().GetHashCode();
 
