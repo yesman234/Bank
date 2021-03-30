@@ -8,8 +8,8 @@ namespace BankClassLibrary
     {
         public string CustomerName;
         DateTime DateofBirth;
-        string PhoneNumber;
-        string Address;
+        public string PhoneNumber;
+        public string Address;
 
         public Customer(string aCustomerName, DateTime aDateOfBirth, string aPhoneNumber, string aAddress)
         {
@@ -19,14 +19,13 @@ namespace BankClassLibrary
             Address = aAddress;
         }
 
-        void UpdatePhone(string aNewPhone)
+        //Copy Construstor
+        public Customer(Customer accountCustomer)
         {
-
-        }
-
-        void UpdateAddress(string aNewAddress)
-        {
-
+            CustomerName = accountCustomer.CustomerName;
+            DateofBirth = accountCustomer.DateofBirth;
+            PhoneNumber = accountCustomer.PhoneNumber;
+            Address = accountCustomer.Address;
         }
     }
 }
