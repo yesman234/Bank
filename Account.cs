@@ -17,6 +17,7 @@ namespace BankClassLibrary
 
         Customer AccountCustomer;
 
+
         public string CustomerName
         {
             get {
@@ -114,7 +115,6 @@ namespace BankClassLibrary
             AccountNumber = Guid.NewGuid().GetHashCode();
 
             CurrentBalance = 0;
-
             ListOfTransactions = new List<Transaction>();
         }
 
@@ -149,42 +149,114 @@ namespace BankClassLibrary
         #endregion
 
         #region METHODS
-        // A method to display balance
-        void DisplayBalance(double aTest)
-            {
-
-            }
 
             //Deposit money method
-            bool DepositMoneyType(double aAmount)
+            public bool DepositMoney(double aAmount)
             {
                 bool isSuccess = false;
+
+            CurrentBalance += aAmount;
+
+            
+            
+            
+            Transaction myTransaction = new Transaction (aAmount, TransactionType.DEPOSIT);
+
+
+            ListOfTransactions.Add(myTransaction);
 
                 return isSuccess;
             }
 
             //Withdraw money method
-            bool WithdrawMoneyType(double aAmount)
+            public bool WithdrawMoney(double aAmount)
             {
-                bool isSuccess = false;
 
-                return isSuccess;
+            bool isSuccess = false;
+            CurrentBalance -= aAmount;
+            Transaction myTransaction = new Transaction(aAmount, TransactionType.WITHDRAWAL);
+
+
+            ListOfTransactions.Add(myTransaction);
+
+
+
+            return isSuccess;
             }
-        #endregion
+
+
+        //Display Balance
+        public void DisplayBalance()
+        {
+            Console.WriteLine("Display Balance " + CurrentBalance);
+        }
+
+        #endregion METHODS
+
+        // create  a method to show the transInfo
 
         #region NESTED TYPES
         public class Transaction
         {
-            public double AmountOfTransaction;
-            public DateTime TransactionDate;
-            public string Location;
-            public TransactionType TypeOfTranactions;
+            #region FEILDS AND PROPERTIES
+             double AmountOfTransaction;
+             DateTime TransactionDate;
+             string Location;
+
+            TransactionType TypeOfTransaction;
+
+            public double MoneyAmount
+            {
+                get
+                {
+                    return AmountOfTransaction;
+                }
+                set
+                {
+                    AmountOfTransaction = value;
+                }
+            }
+            #endregion
+
+            #region METHODS
+            public void DisplayTransaction()
+            {
+                Console.WriteLine((TypeOfTransaction == TransactionType.DEPOSIT ? "Deposit" : "Withdraw") + " is done.");
+                Console.WriteLine("Total Amount" + AmountOfTransaction + "Date:" + TransactionDate.ToString("yyyy/mm/dd"));
+            }
+
+            #endregion
+            #region CONSTRUCTORS
+
+            private Transaction()
+            {
+                //cannot be called
+
+            }
+            public Transaction(double aAmountOfTransaction, TransactionType aTransactionType)
+            {
+                AmountOfTransaction = aAmountOfTransaction;
+                TypeOfTransaction = aTransactionType; 
+
+                TransactionDate = DateTime.Now;
+                Location = "EARTH";
+            }
+
+            public Transaction(Transaction aTransactionToCopy)
+            {
+                AmountOfTransaction = aTransactionToCopy.AmountOfTransaction;
+                TypeOfTransaction = aTransactionToCopy.TypeOfTransaction;
+                TransactionDate = aTransactionToCopy.TransactionDate;
+                Location = aTransactionToCopy.Location;
+            }
+            #endregion
         }
-        
+
+        //Transaction Type
         public enum TransactionType
         {
             DEPOSIT,
-            WITHDRAWL
+            WITHDRAWAL
         }
     }
     #endregion
