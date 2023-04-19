@@ -156,9 +156,6 @@ namespace BankClassLibrary
                 bool isSuccess = false;
 
             CurrentBalance += aAmount;
-
-            
-            
             
             Transaction myTransaction = new Transaction (aAmount, TransactionType.DEPOSIT);
 

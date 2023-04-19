@@ -10,9 +10,10 @@ C:\Users\Marcellus Jones\source\repos\BankClassLibrary\obj\Debug\netstandard2.0\
 C:\Users\only1\Source\Repos\Bank\bin\Debug\netstandard2.0\BankClassLibrary.deps.json
 C:\Users\only1\Source\Repos\Bank\bin\Debug\netstandard2.0\BankClassLibrary.dll
 C:\Users\only1\Source\Repos\Bank\bin\Debug\netstandard2.0\BankClassLibrary.pdb
-C:\Users\only1\Source\Repos\Bank\obj\Debug\netstandard2.0\BankClassLibrary.csprojAssemblyReference.cache
 C:\Users\only1\Source\Repos\Bank\obj\Debug\netstandard2.0\BankClassLibrary.AssemblyInfoInputs.cache
 C:\Users\only1\Source\Repos\Bank\obj\Debug\netstandard2.0\BankClassLibrary.AssemblyInfo.cs
 C:\Users\only1\Source\Repos\Bank\obj\Debug\netstandard2.0\BankClassLibrary.csproj.CoreCompileInputs.cache
 C:\Users\only1\Source\Repos\Bank\obj\Debug\netstandard2.0\BankClassLibrary.dll
 C:\Users\only1\Source\Repos\Bank\obj\Debug\netstandard2.0\BankClassLibrary.pdb
+C:\Users\only1\Source\Repos\Bank\obj\Debug\netstandard2.0\BankClassLibrary.csproj.AssemblyReference.cache
+C:\Users\only1\Source\Repos\Bank\obj\Debug\netstandard2.0\BankClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
